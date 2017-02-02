@@ -7,12 +7,11 @@ app = Flask(__name__)
 
 @app.route("/sms/reply", methods=["GET", "POST"])
 def reply():
-	 """Respond to incoming texts"""
-
-    resp = twilio.twiml.Response()
-    resp.message("Hello, Mobile Monkey")
-    return str(resp)
+	"""Respond to incoming texts"""
+	resp = twilio.twiml.Response()
+	resp.message("Hello, Mobile Monkey")
+	return str(resp)
 
 
 if __name__ == "__main__":
-    app.run()
+	app.run()
