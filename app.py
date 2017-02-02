@@ -31,7 +31,7 @@ def reply():
 		for row in trump_reader:
 			
 			if fuzz.partial_ratio(company.decode('utf8'), row[0].decode('utf8').title()) >= PERCENT_MATCHING:
-				r_message = "{} has take a stance against {}.  Go for it!".format(
+				r_message = "{} has taken a stance against {}.  Go for it!".format(
 					row[0].title(), random.choice(NAMES_FOR_TRUMP))
 				break
 
