@@ -9,6 +9,7 @@ from fuzzywuzzy import fuzz
 # Constants
 
 TRUMP_LOVERS = "trump-lovers.csv"
+TRUMP_EH = "trump-eh.csv"
 TRUMP_HATERS = "trump-haters.csv"
 PERCENT_MATCHING = 85
 NAMES_FOR_TRUMP = ['Orange Boy', 'Agent Orange', 'the Zen Master of Hate', 'the Short-Fingered Vulgarian',
@@ -33,6 +34,16 @@ def reply():
 			if fuzz.partial_ratio(company.decode('utf8'), row[0].decode('utf8').title()) >= PERCENT_MATCHING:
 				r_message = "{} has taken a stance against {}.  Go for it!".format(
 					row[0].title(), random.choice(NAMES_FOR_TRUMP))
+				break
+
+	# eh guys
+	with open(TRUMP_EH, 'rb') as csvfile:
+		trump_reader = csv.reader(csvfile)
+		for row in trump_reader:
+			
+			if fuzz.partial_ratio(company.decode('utf8'), row[0].decode('utf8').title()) >= PERCENT_MATCHING:
+				r_message = "{} is not on the grabyourwallet boycott list.  Here's what we know: {}".format(
+					row[0].title(), row[1])
 				break
 
 	# bad guys
