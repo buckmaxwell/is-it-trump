@@ -9,8 +9,7 @@ app = Flask(__name__)
 def reply():
 	"""Respond to incoming texts with an echo"""
 	resp = twilio.twiml.Response()
-	print request.values
-	resp.message(str(request.values))
+	resp.message(str(request.values.get('Body')))
 	return str(resp)
 
 
