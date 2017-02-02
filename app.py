@@ -24,7 +24,9 @@ def reply():
 	"""Respond to incoming texts with an echo"""
 	resp = twilio.twiml.Response()
 	company = request.values.get('Body').title()
-	r_message = "As far as we know, nothing is wrong with {}".format(company)
+	r_message = """As far as we know {} isn't being boycotted by 
+	#grabyourwallet.""".format(
+		company)
 
 	# good guys
 	with open(TRUMP_HATERS, 'rb') as csvfile:

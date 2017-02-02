@@ -1,4 +1,4 @@
-# Is it Trump? -- NOT WORKING YET, but it will by the end of tonight --
+# Is it Trump?
 
 
 Tweet the name of a business to us and we will reply with whether you should boycott it.
