@@ -8,6 +8,9 @@ app = Flask(__name__)
 @app.route("/sms/reply", methods=["GET", "POST"])
 def reply():
 	"""Respond to incoming texts with an echo"""
+	company = request.values.get('Body')
+
+	
 	resp = twilio.twiml.Response()
 	resp.message(str(request.values.get('Body')))
 	return str(resp)
